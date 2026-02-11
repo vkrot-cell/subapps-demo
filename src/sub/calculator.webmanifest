@@ -1,0 +1,35 @@
+{
+  "start_url": "/sub/calculator.html?a=b",
+  "name": "Calculator App",
+  "version": "0.0.0",
+  "display": "standalone",
+  "permissions_policy": {
+    "cross-origin-isolated": [
+      "self"
+    ],
+    "sub-apps": [
+      "self"
+    ],
+    "window-management": [
+      "self"
+    ],
+    "geolocation": ["self"]
+  },
+  "isolated_storage": true,
+  "icons": [
+    {
+      "src": "/images/subicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/sub/calculator.html",
+      "accept": {
+        "audio/wav": [".wav"]
+      }
+    }
+  ]
+}

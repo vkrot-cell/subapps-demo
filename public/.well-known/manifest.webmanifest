@@ -1,0 +1,31 @@
+{
+  "id": "/",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Subapps Demo IWA",
+  "version": "0.0.0",
+  "display": "standalone",
+  "permissions_policy": {
+    "cross-origin-isolated": [
+      "self"
+    ],
+    "sub-apps": [
+      "self"
+    ],
+    "web-printing": [
+      "self"
+    ],
+    "window-management": [
+      "self"
+    ]
+  },
+  "isolated_storage": true,
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
