@@ -9,10 +9,10 @@ const addCalculator = document.getElementById('buttonAddCalculator');
 const openCalculator = document.getElementById('buttonOpenCalculator');
 
 addCalculator!!.addEventListener('click', () => {
-  navigator.subApps!!.add({ "/sub/calculator.html?a=b": { installURL: "/sub/calculator.html" } })
+  navigator.subApps!!.add({ "/sub/calculator.html": { installURL: "/sub/calculator.html" } })
 });
 openCalculator!!.addEventListener('click', () => {
-  window.open("/sub/calculator.html?a=b");
+  window.open("/sub/calculator.html");
 });
 
 const setupDynamicApp = (appName: string) => {
@@ -22,10 +22,10 @@ const setupDynamicApp = (appName: string) => {
   const openDynamic = document.getElementById(`buttonOpen${capitalized}`);
 
   addDynamic!!.addEventListener('click', () => {
-    navigator.subApps!!.add({ [`/dynamic/${appName}.html`]: { installURL: `/dynamic/${appName}.html` } })
+    navigator.subApps!!.add({ [`/dynamic/${appName}/app.html`]: { installURL: `/dynamic/${appName}/app.html` } })
   });
   openDynamic!!.addEventListener('click', () => {
-    window.open(`/dynamic/${appName}.html`);
+    window.open(`/dynamic/${appName}/app.html`);
   });
 };
 

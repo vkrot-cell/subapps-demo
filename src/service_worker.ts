@@ -3,8 +3,8 @@ declare var self: ServiceWorkerGlobalScope;
 self.addEventListener("fetch", (event) => {
     const url = new URL(event.request.url);
 
-    const htmlMatch = url.pathname.match(/^\/dynamic\/(.+)\.html$/);
-    const manifestMatch = url.pathname.match(/^\/dynamic\/(.+)\.webmanifest$/);
+    const htmlMatch = url.pathname.match(/^\/dynamic\/(.+)\/app\.html$/);
+    const manifestMatch = url.pathname.match(/^\/dynamic\/(.+)\/app\.webmanifest$/);
 
     if (htmlMatch) {
         const appName = htmlMatch[1];
@@ -25,7 +25,7 @@ const appHtml = (appName: string) => `
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="manifest" href="/dynamic/${appName}.webmanifest" />
+    <link rel="manifest" href="/dynamic/${appName}/app.webmanifest" />
     <title>Dynamic sub app</title>
   </head>
   <body>
@@ -45,7 +45,7 @@ type FileHandlers = Record<string, FileHandler[]>;
 const file_handlers: FileHandlers = {
     "word": [
         {
-            "action": "/dynamic/word.html",
+            "action": "/dynamic/word/app.html",
             "accept": {
                 "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"]
             }
@@ -53,7 +53,7 @@ const file_handlers: FileHandlers = {
     ],
     "notepad": [
         {
-            "action": "/dynamic/notepad.html",
+            "action": "/dynamic/notepad/app.html",
             "accept": {
                 "text/plain": [".txt"]
             }
@@ -61,7 +61,7 @@ const file_handlers: FileHandlers = {
     ],
     "photoshop": [
         {
-            "action": "/dynamic/photoshop.html",
+            "action": "/dynamic/photoshop/app.html",
             "accept": {
                 "image/vnd.adobe.photoshop": [".psd"]
             }
@@ -71,8 +71,8 @@ const file_handlers: FileHandlers = {
 
 const appManifest = (name: string) => ({
     "name": capitalize(name),
-    "start_url": `/dynamic/${name}.html`,
-    "scope": `/dynamic/${name}.html`,
+    "start_url": `/dynamic/${name}/app.html`,
+    "scope": `/dynamic/${name}`,
     "version": "0.0.0",
     "display": "standalone",
     "permissions_policy": {
