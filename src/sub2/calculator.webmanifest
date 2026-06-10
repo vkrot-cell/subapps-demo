@@ -1,0 +1,24 @@
+{
+  "start_url": "/sub2/calculator.html",
+  "name": "Calculator2",
+  "version": "1.0.0",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/images/calc2.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [{
+    "name": "Shortcut2",
+    "url": "/sub2/calculator.html",
+    "icons": [{
+      "src": "/images/calc2.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }]
+  }]
+}

@@ -1,35 +1,50 @@
 {
-  "start_url": "/sub/calculator.html?a=b",
-  "name": "Calculator App",
-  "version": "0.0.0",
+  "start_url": "/sub/calculator.html",
+  "name": "CalculatorFirst",
+  "version": "3.0.0",
   "display": "standalone",
-  "permissions_policy": {
-    "cross-origin-isolated": [
-      "self"
-    ],
-    "sub-apps": [
-      "self"
-    ],
-    "window-management": [
-      "self"
-    ],
-    "geolocation": ["self"]
-  },
-  "isolated_storage": true,
+  "scope": "/calc1",
   "icons": [
     {
-      "src": "/images/subicon.png",
+      "src": "/images/calc1.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+jngl",
+      "url": "/sub/calculator.html?type=%s"
+    }
+  ],
   "file_handlers": [
     {
       "action": "/sub/calculator.html",
+      "name": "Calculator File",
       "accept": {
-        "audio/wav": [".wav"]
-      }
+        "text/plain": [".txt", ".md"]
+      },
+      "icons": [
+        {
+          "src": "/images/calc1.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     }
-  ]
+  ],
+  "shortcuts": [{
+    "name": "Shortcut",
+    "url": "/sub/calculator.html",
+    "icons": [{
+      "src": "/images/calc1.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }]
+  }],
+  "launch_handler": {
+    "client_mode": "navigate-new"
+  }
 }

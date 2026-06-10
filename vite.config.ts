@@ -66,6 +66,7 @@ export default defineConfig({
         index: resolve(__dirname, "src/index.html"),
         service_worker: resolve(__dirname, "src/service_worker.ts"),
         calculator: resolve(__dirname, "src/sub/calculator.html"),
+        calculator2: resolve(__dirname, "src/sub2/calculator.html"),
       },
       output: {
         entryFileNames: (assetInfo) => {

@@ -2,7 +2,7 @@
   "id": "/",
   "scope": "/",
   "start_url": "/",
-  "name": "Subapps Demo IWA",
+  "name": "Office Suite",
   "version": "0.0.0",
   "display": "standalone",
   "permissions_policy": {
@@ -17,6 +17,9 @@
     ],
     "window-management": [
       "self"
+    ],
+    "geolocation": [
+      "self"
     ]
   },
   "isolated_storage": true,
@@ -26,6 +29,12 @@
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+asdf",
+      "url": "/index.html?type=%s"
     }
   ]
 }

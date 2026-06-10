@@ -75,12 +75,6 @@ const appManifest = (name: string) => ({
     "scope": `/dynamic/${name}`,
     "version": "0.0.0",
     "display": "standalone",
-    "permissions_policy": {
-        "cross-origin-isolated": ["self"],
-        "sub-apps": ["self"],
-        "window-management": ["self"]
-    },
-    "isolated_storage": true,
     "icons": [
         {
             "src": appIcon(name),

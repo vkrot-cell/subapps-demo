@@ -3,6 +3,8 @@
 
 interface Navigator {
     subApps?: {
-        add(apps: Record<string, { installURL: string }>): any;
+        add(apps: List<string>): Promise<any>;
+        remove(apps: List<string>): Promise<any>;
+        list(): Promise<any>;
     }
 }
