@@ -1,3 +1,5 @@
+allowBuilds:
+  esbuild: false
 onlyBuiltDependencies:
   - esbuild
 # This is needed if you happen to run this with pnpm 9.

@@ -1,5 +1,22 @@
 declare var self: ServiceWorkerGlobalScope;
 
+const appStates: Record<string, string> = {};
+
+self.addEventListener("install", () => {
+    self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+    event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener("message", (event) => {
+    if (event.data && event.data.type === 'SET_TITLE') {
+        const { appName, state } = event.data;
+        appStates[appName] = state;
+    }
+});
+
 self.addEventListener("fetch", (event) => {
     const url = new URL(event.request.url);
 
@@ -9,31 +26,39 @@ self.addEventListener("fetch", (event) => {
     if (htmlMatch) {
         const appName = htmlMatch[1];
         console.log("SW: fetch - dynamic HTML for", appName);
-        const html = appHtml(appName);
+        const html = appHtml(appName, appStates[appName]);
         event.respondWith(localResponse("text/html; charset=utf-8", html));
     } else if (manifestMatch) {
         const appName = manifestMatch[1];
         console.log("SW: fetch - dynamic manifest for", appName);
-        const manifest = appManifest(appName);
+        const manifest = appManifest(appName, appStates[appName]);
         const json = JSON.stringify(manifest);
         event.respondWith(localResponse("application/manifest+json", json));
     }
 });
 
-const appHtml = (appName: string) => `
+const appHtml = (appName: string, state?: string) => {
+    let title = capitalize(appName);
+    if (state === 'updated') {
+        title = title + " Updated!";
+    } else if (state === 'original') {
+        title = title + " Original";
+    }
+    return `
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="manifest" href="/dynamic/${appName}/app.webmanifest" />
-    <title>Dynamic sub app</title>
+    <title>${title}</title>
   </head>
   <body>
-    <h1>Dynamic sub app</h1>
+    <h1>${title}</h1>
     <p>App: <b>${capitalize(appName)}</b></p>
   </body>
 </html>
 `;
+};
 
 type FileHandler = {
     action: string;
@@ -69,22 +94,30 @@ const file_handlers: FileHandlers = {
     ]
 };
 
-const appManifest = (name: string) => ({
-    "name": capitalize(name),
-    "start_url": `/dynamic/${name}/app.html`,
-    "scope": `/dynamic/${name}`,
-    "version": "0.0.0",
-    "display": "standalone",
-    "icons": [
-        {
-            "src": appIcon(name),
-            "type": "image/png",
-            "sizes": "512x512",
-            "purpose": "any maskable"
-        }
-    ],
-    "file_handlers": file_handlers[name] || []
-});
+const appManifest = (name: string, state?: string) => {
+    let title = capitalize(name);
+    if (state === 'updated') {
+        title = title + " Updated!";
+    } else {
+        title = title + " Original";
+    }
+    return {
+        "name": title,
+        "start_url": `/dynamic/${name}/app.html`,
+        "scope": `/dynamic/${name}`,
+        "version": "0.0.0",
+        "display": "standalone",
+        "icons": [
+            {
+                "src": appIcon(name),
+                "type": "image/png",
+                "sizes": "512x512",
+                "purpose": "any maskable"
+            }
+        ],
+        "file_handlers": file_handlers[name] || []
+    };
+};
 
 const localResponse = (type: "text/html; charset=utf-8" | "application/manifest+json", body: string) =>
     new Response(body, {
