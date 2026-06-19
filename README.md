@@ -15,7 +15,27 @@
   </picture>
 </a>
 
-This is a sample app intended to be used as a base for developing demo IWAs.
+## How to try it? 
+
+* You need a ChromeOS device
+  * The API works on any Desktop, but not officially supported, so minor issues are possible, but generally it can work fine on Mac, for example, as well.
+* Navigate to chrome://flags and enable the following feature flags
+  * #enable-isolated-web-apps
+  * #enable-isolated-web-app-dev-mode
+  * #enable-sub-apps
+* Navigate to chrome://web-app-internals
+  * Find "Install IWA from Update Manifest"
+  * Paste in the the address: https://subapps-demo-iwa.web.app/releases/update_manifest.json
+  * Click "fetch" and "install"
+
+## How to implement it in your own app?
+
+The main parts of the demo needed to get sub apps going are as follows:
+1. The usage of the API: `/src/index.ts`
+2. The manifest of the calculator sub app: `/src/sub/calculator`.webmanifest 
+3. Registering the serviceworker that will be used for dynamic sub apps: `/src/index.ts` 
+4. The serviceworker code where we catch the fetch requests and return custom responses: `src/service_worker.ts`
+
 
 ## Deploying the app
 
