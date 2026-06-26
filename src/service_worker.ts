@@ -112,7 +112,7 @@ const appManifest = (name: string, state?: string) => {
                 "src": appIcon(name),
                 "type": "image/png",
                 "sizes": "512x512",
-                "purpose": "any maskable"
+                "purpose": "maskable"
             }
         ],
         "file_handlers": file_handlers[name] || []
@@ -126,9 +126,6 @@ const localResponse = (type: "text/html; charset=utf-8" | "application/manifest+
             : {
                 "Content-Type": type,
                 // Required IWA headers.
-                "Cross-Origin-Opener-Policy": "same-origin",
-                "Cross-Origin-Embedder-Policy": "require-corp",
-                "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:",
                 "X-Content-Type-Options": "nosniff",
             }
     });

@@ -3,13 +3,12 @@
   "name": "CalculatorFirst",
   "version": "3.0.0",
   "display": "standalone",
-  "scope": "/calc1",
   "icons": [
     {
       "src": "/images/calc1.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "protocol_handlers": [
@@ -41,7 +40,7 @@
       "src": "/images/calc1.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "purpose": "any"
     }]
   }],
   "launch_handler": {

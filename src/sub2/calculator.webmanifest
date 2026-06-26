@@ -8,7 +8,7 @@
       "src": "/images/calc2.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "shortcuts": [{
@@ -18,7 +18,7 @@
       "src": "/images/calc2.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "purpose": "any"
     }]
   }]
 }

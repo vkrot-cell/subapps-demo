@@ -229,6 +229,34 @@
       "src": "https://subapps-demo-iwa.web.app/releases/iwa_60.0.0.swbn"
     },
     {
+      "version": "61.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_61.0.0.swbn"
+    },
+    {
+      "version": "62.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_62.0.0.swbn"
+    },
+    {
+      "version": "63.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_63.0.0.swbn"
+    },
+    {
+      "version": "64.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_64.0.0.swbn"
+    },
+    {
+      "version": "65.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_65.0.0.swbn"
+    },
+    {
+      "version": "66.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_66.0.0.swbn"
+    },
+    {
+      "version": "67.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_67.0.0.swbn"
+    },
+    {
       "version": "7.0.0",
       "src": "https://subapps-demo-iwa.web.app/releases/iwa_7.0.0.swbn"
     },

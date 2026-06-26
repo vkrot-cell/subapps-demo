@@ -22,13 +22,12 @@
       "self"
     ]
   },
-  "isolated_storage": true,
   "icons": [
     {
       "src": "/images/icon.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "protocol_handlers": [
