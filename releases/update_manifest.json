@@ -257,6 +257,14 @@
       "src": "https://subapps-demo-iwa.web.app/releases/iwa_67.0.0.swbn"
     },
     {
+      "version": "68.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_68.0.0.swbn"
+    },
+    {
+      "version": "69.0.0",
+      "src": "https://subapps-demo-iwa.web.app/releases/iwa_69.0.0.swbn"
+    },
+    {
       "version": "7.0.0",
       "src": "https://subapps-demo-iwa.web.app/releases/iwa_7.0.0.swbn"
     },

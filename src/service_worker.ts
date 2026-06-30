@@ -112,7 +112,7 @@ const appManifest = (name: string, state?: string) => {
                 "src": appIcon(name),
                 "type": "image/png",
                 "sizes": "512x512",
-                "purpose": "maskable"
+                "purpose": "any"
             }
         ],
         "file_handlers": file_handlers[name] || []
